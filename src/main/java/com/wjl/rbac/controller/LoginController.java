@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 登录
+ *
  * @author: wjl
  * @date: 2021/11/15 19:30
  * @version: v1.0
@@ -21,6 +23,11 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 登录
+     *
+     * @param user user
+     */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
         String username = user.getUsername();

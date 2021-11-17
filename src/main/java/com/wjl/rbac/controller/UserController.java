@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
+ * user
+ *
  * @author: wjl
  * @date: 2021/11/15 19:53
  * @version: v1.0
@@ -26,6 +28,11 @@ public class UserController {
     @Autowired
     private StpInterface stpInterface;
 
+    /**
+     * roles
+     *
+     * @param username username
+     */
     @SaCheckLogin
     @SaCheckRole("admin")
     @RequestMapping(value = "/roles", method = RequestMethod.GET)
@@ -33,6 +40,11 @@ public class UserController {
         return stpInterface.getRoleList(username, "user");
     }
 
+    /**
+     * permissions
+     *
+     * @param username username
+     */
     @SaCheckRole("visitor")
     @RequestMapping(value = "/permissions", method = RequestMethod.GET)
     public List<String> getAllPermissions(@RequestParam String username) {
